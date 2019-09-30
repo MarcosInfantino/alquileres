@@ -1,0 +1,22 @@
+import bots.*
+describe "test"{
+	fixture{
+		alex.tuitea(tuit1)
+	}
+test "cuando alex tuitea sobre empanadas la policia lo investiga y agrega a sus registros" {
+
+	assert.equals(policia.registros().size(),1)
+
+}
+
+test "alex tuitea y su tuit esta en los registros de Twitter"{
+	assert.that(twitter.tweets().contains(tuit1))
+}
+
+test "alex tuitea sobre empanadas y tiene en su home una respuesta del bot de empanadas"{
+	assert.equals(alex.home().head().persona(),"bot de empanadas")
+}
+test "el unico tweet a la nada es el de alex"{
+	assert.equals([tuit1],twitter.tweetsALaNada())
+}
+}
