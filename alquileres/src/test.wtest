@@ -1,0 +1,26 @@
+import alquileres.*
+describe "test"{
+test "depto1 es espacioso, el consumo eléctrico es 2880 watts/hora, el accesorio más alto es la mesa, tiene calefacción, y tiene dos artículos de alto consumo (la estufa y el aire)." {
+
+	assert.that(depto1.esEspacioso())
+	assert.equals(2880,depto1.consumoElectrico())
+	assert.equals(mesa1,depto1.artefactoMasAlto())
+	assert.that(depto1.tieneCalefaccion())
+	assert.equals(2,depto1.cantArtefactosAltoConsumo())
+
+}
+test "depto2 es espacioso, el consumo eléctrico es 1350 watts/hora, el accesorio más alto es el aire, no tiene calefacción, y tiene un artículo de alto consumo (el aire)."{
+assert.that(depto2.esEspacioso())
+assert.equals(1350,depto2.consumoElectrico())
+assert.equals(aire2,depto2.artefactoMasAlto())
+assert.equals(1,depto2.cantArtefactosAltoConsumo())
+}
+
+test "depto3 no es espacioso, el consumo eléctrico es 1450 watts/hora, el accesorio más alto es la mesa, tiene calefacción, y no tiene artículos de alto consumo. "{
+	assert.notThat(depto3.esEspacioso())
+	assert.equals(1450,depto3.consumoElectrico())
+	assert.equals(mesa3,depto3.artefactoMasAlto())
+	assert.that(depto3.tieneCalefaccion())
+	assert.equals(0,depto3.cantArtefactosAltoConsumo())
+}
+}
