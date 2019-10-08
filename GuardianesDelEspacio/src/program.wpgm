@@ -1,0 +1,41 @@
+import wollok.game.*
+import objects.*
+import wollok.lib.*
+import atacantes.*
+import inicio.*
+
+program abc {
+        
+		game.title("Space Invaders")
+		game.height(20)
+		game.width(10)
+		game.boardGround("espacio.jpg")
+		
+        
+        //keyboard.enter().onPressDo{
+        	inicializar.empezamos()
+			game.addVisual(nave)
+	    	game.addVisual(alienContador)
+	    
+	    	game.whenCollideDo(nave,{elemento=>nave.morite()})
+	   
+	    	game.onTick(900, "contar segs",{alienContador.incrementarSegundos() })
+	    	game.onTick(900, "decir segs",{if(!alienContador.deboParar())
+	    	game.say(alienContador,alienContador.dameElTiempo())
+	    		
+	    		else
+	    			game.say(alienContador,"GAME OVER")
+	    	})
+	    
+	    	
+	    	keyboard.space().onPressDo{nave.disparar() }
+	    	keyboard.right().onPressDo{nave.right()}
+			keyboard.left().onPressDo{nave.left()}
+			keyboard.up().onPressDo{nave.up()}
+			keyboard.down().onPressDo{nave.down()
+			}
+	   		game.start()
+			
+//}
+		
+}
